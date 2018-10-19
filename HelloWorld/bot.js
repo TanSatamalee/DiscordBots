@@ -25,7 +25,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'intro':
 				bot.sendMessage({
 					to: channelID,
-					message: 'Greetings! Welcome to the server!'
+					message: 'Greetings! Welcome to the server! Noob!'
 				});
 			break;
 		}
