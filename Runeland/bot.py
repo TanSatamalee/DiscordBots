@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import random
+import secrets
 
 command_prefix = "!"
 description = "Bot for helping Runeland Discord Server"
@@ -101,4 +102,4 @@ async def createchar(ctx):
 	
 
 
-bot.run('NTAxMjM2Mzc0MTE3MDIzNzQ0.DqWc6g.B9cQG8ecydbRfhkM-QbxKy5VqVM')
+bot.run(secrets.bot_token)
