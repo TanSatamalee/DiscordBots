@@ -35,6 +35,7 @@ async def createchar(ctx):
 	response_race = await bot.wait_for('message', check=pred, timeout=30)
 	
 	# Checks to see if user wants to roll for a unique race.
+	user_race = None
 	if response_race.content == 'roll':
 		race_roll = random.randint(1, 100)
 
@@ -58,7 +59,46 @@ async def createchar(ctx):
 	else:
 		return await ctx.send("You need to specify a specific race!")
 
-	ctx.send()
+	await ctx.send("You got the race: " + user_race)
+
+
+	# Getting user a background.
+	background_roll = random.randint(1, 100)
+	user_background = None
+	if background_roll < 8:
+		user_background = "Apprentice"
+	elif background_roll < 15:
+		user_background = "Bodyguard"
+	elif background_roll < 22:
+		user_background = "Diplomat"
+	elif background_roll < 29:
+		user_background = "Exile or Expatriate"
+	elif background_roll < 36:
+		user_background = "Former Slave"
+	elif background_roll < 43:
+		user_background = "High Born"
+	elif background_roll < 50:
+		user_background = "Hermit"
+	elif background_roll < 57:
+		user_background = "Initiate of the Flame"
+	elif background_roll < 64:
+		user_background = "Peasant"
+	elif background_roll < 71:
+		user_background = "Rebel"
+	elif background_roll < 78:
+		user_background = "Reaver"
+	elif background_roll < 85:
+		user_background = "Veteran"
+	elif background_roll < 92:
+		user_background = "Urchin"
+	else:
+		await ctx.send("You get to choose a background! Please enter it below.")
+		response_background = await bot.wait_for('message', check=pred, timeout=30)
+		user_background = response_background.content
+
+	await ctx.send("You got the background: " + user_background)
+
+	
 
 
 bot.run('NTAxMjM2Mzc0MTE3MDIzNzQ0.DqWc6g.B9cQG8ecydbRfhkM-QbxKy5VqVM')
